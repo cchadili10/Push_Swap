@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/17 02:07:44 by hchadili         ###   ########.fr       */
+/*   Created: 2024/03/17 01:27:50 by hchadili          #+#    #+#             */
+/*   Updated: 2024/03/17 01:39:26 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-typedef struct s_node
+void sa(t_node **a)
 {
-    int data;
-    int index;
-    int bl;
-    struct s_node* next;
-} t_node;
-
-
-
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-
-
-int	ft_atoi(const char *str);
-void sa(t_node **a);
-void pa(t_node **a,t_node **b);
-void insertEnd(t_node **head, int data,int index);
-#endif
+    t_node *tump = *a;
+    *a = tump->next;
+    tump->next = tump->next->next;
+    (*a)->next = tump;
+}
+void ss(t_node **a,t_node **b)
+{
+   sa(a);
+   sa(b);
+}
