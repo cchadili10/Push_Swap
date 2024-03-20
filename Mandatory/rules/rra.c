@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 01:51:28 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/18 01:15:30 by hchadili         ###   ########.fr       */
+/*   Created: 2024/03/18 00:23:53 by hchadili          #+#    #+#             */
+/*   Updated: 2024/03/18 01:53:34 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void pa(t_node **a,t_node **b)
+void rra(t_node **a)
 {
-    t_node *temp = NULL;
-    t_node *tempx = (*a)->next;
-    insertEnd(&temp,(*a)->data,(*a)->index);
+    t_node *temp = *a;;
+    t_node *temp1 = NULL;
     
-    temp->next = *b;
-    *b = temp;
-    *a = tempx;
+    while (temp->next != NULL)
+        temp = temp->next;
+    insertEnd(&temp1, temp->data, temp->index);
+    temp1->next = *a;
+    *a = temp1;
+    temp = *a;
+    while (temp->next->next != NULL)
+        temp = temp->next;
+    temp->next = NULL;
+}
+
+void rrr(t_node **a, t_node **b)
+{
+    rra(a);
+    rra(b);
 }

@@ -6,11 +6,19 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/17 02:36:18 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:29:27 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+void printList(t_node *node, char *s)
+{
+    while (node != NULL)
+    {
+        printf("STACK %s -->  Index %d: Data %d\n",s, node->index, node->data);
+        node = node->next;
+    }
+}
 
 t_node *createNode(int data, int index)
 {
@@ -37,26 +45,61 @@ void insertEnd(t_node **head, int data,int index)
     temp->next = newNode;
 }
 
-
-
-
 void sort_ink(t_node **a, t_node **b, int i)
  {
-    // t_node *temp = a;
-    // int x = 0;
-    
-    // while (temp != NULL)
-    // {
-    //     if(temp->index == 0)
-    //         break;
-    //     x++;
-    //     temp = temp->next;
-    // }
-    printf("%d\n",1);
-    sa(a);
+    t_node *tump = *a;
+    static int status_of_index = 0;
+    int node_position = 0;
+    int x = i/2;
+    // printf("%d \t\t\t  %d \t\t\t %d\n",x, i, status_of_index);
+    if(*a == NULL)
+    {
+        tump = *b;
+        while (tump)
+        {
+
+            pa(b,a);
+            printf("pa\n");
+            i--;
+            tump = tump->next;
+        }
+        
+        return;
+    }
+    //  printf("\n\n%d\n\n",status_of_index);
+    while (tump)
+    {
+        if (tump->index == status_of_index)
+        {
+            if(x >= node_position)
+            {
+                while (node_position)
+                {
+                    ra(a);
+                    printf("ra\n");
+                    node_position--;
+                }
+            }
+            else
+            {
+                while (node_position != i)
+                {
+                    rra(a);
+                    printf("rra\n");
+                    node_position++;
+                }
+                node_position = 0;
+            }
+            status_of_index++;
+            break;
+        }
+        node_position++;
+       tump = tump->next;
+    }
     pa(a,b);
-    pa(a,b);
-    // *a = NULL;
+    printf("pb\n");
+    node_position = 0;
+    sort_ink(a, b, i-1);
  }
 
 int get_index(t_node *node, int data)
@@ -86,14 +129,7 @@ void index_list(t_node *node)
     }
 }
 
-void printList(t_node *node)
-{
-    while (node != NULL)
-    {
-        printf("Index %d: Data %d\n", node->index, node->data);
-        node = node->next;
-    }
-}
+
 // 25 12 27 3 65 9  7
 int main(int argc, char *argv[])
 {
@@ -106,15 +142,8 @@ int main(int argc, char *argv[])
         insertEnd(&a, ft_atoi(argv[i]),0);
         i++;
     }
-    printf("\nLinked List:\n");
     index_list(a);
-    printList(a);
     sort_ink(&a,&b, i-1);
-    // a = NULL;
-    
-    printList(a);
-    printf("%d\n",1);
-    printList(b);
     return 0;
 }
 

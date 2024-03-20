@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/18 00:26:47 by hchadili         ###   ########.fr       */
+/*   Created: 2024/03/18 00:25:10 by hchadili          #+#    #+#             */
+/*   Updated: 2024/03/18 01:53:14 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-typedef struct s_node
+void ra(t_node **a)
 {
-    int data;
-    int index;
-    int bl;
-    struct s_node* next;
-} t_node;
+    t_node *temp = (*a)->next;
+    t_node *temp1 = NULL;
+    insertEnd(&temp1, (*a)->data, (*a)->index);
+    (*a) = temp;
+    while (temp->next != NULL)
+        temp = temp->next;
+    temp->next = temp1;
+}
 
-
-
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-
-
-int	ft_atoi(const char *str);
-void sa(t_node **a);
-void pa(t_node **a,t_node **b);
-void rra(t_node **a);
-void ra(t_node **a);
-void insertEnd(t_node **head, int data,int index);
-#endif
+void rr(t_node **a, t_node **b)
+{
+    ra(a);
+    ra(b);
+}
