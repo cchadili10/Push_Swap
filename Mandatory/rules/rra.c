@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 00:23:53 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 10:24:01 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:25:28 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void rra(t_node **a)
     temp->next = NULL;
     free(lastNode);
 }
-
 
 void rrr(t_node **a, t_node **b)
 {

@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 09:49:55 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:43:24 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ int get_index(t_node *node, int data)
 	}
 	return (x);
 }
+void ft_error(char *s)
+{
+	printf("%s",s);
+	exit(0);
+}
 void index_list(t_node *node)
 {
 	t_node *temp1;
@@ -70,7 +75,27 @@ void index_list(t_node *node)
 		node = node->next;
 	}
 }
-
+int	ft_isdigit( int arg )
+{
+	if (arg >= '0' && arg <= '9')
+		return (1);
+	return (0);
+}
+int is_number(char *s)
+{
+	int x = 0;
+	
+	if((s[x] != '+' && s[x] != '-') && (s[x] < 48 || s[x] > 57))
+	    return 1;
+	x++;
+	while (s[x])
+	{
+		if(s[x] < 48 || s[x] > 57 )
+			return 1;
+		x++;
+	}
+	return 0;
+}
 
 int main(int argc, char *argv[])
 {
@@ -86,6 +111,8 @@ int main(int argc, char *argv[])
 		array = ft_split(argv[1], ' ');
 		while (array[i])
 		{
+			if(is_number(array[i]))
+				ft_error("put valid number");
 			insertEnd(&a, ft_atoi(array[i]),0);
 			free(array[i]);
 			i++;
@@ -110,6 +137,7 @@ int main(int argc, char *argv[])
 	}
 	else
 		sort_link(&a,&b, i);
+	// printList(a,"A");
 	system("leaks push_swap");
 	return 0;
 }
