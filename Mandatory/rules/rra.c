@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 00:23:53 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/18 01:53:34 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:24:01 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void rra(t_node **a)
 {
-    t_node *temp = *a;;
+    t_node *temp = *a;
     t_node *temp1 = NULL;
+    t_node *lastNode;
     
     while (temp->next != NULL)
         temp = temp->next;
@@ -25,8 +26,11 @@ void rra(t_node **a)
     temp = *a;
     while (temp->next->next != NULL)
         temp = temp->next;
+    lastNode = temp->next;
     temp->next = NULL;
+    free(lastNode);
 }
+
 
 void rrr(t_node **a, t_node **b)
 {
