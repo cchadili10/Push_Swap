@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 11:43:24 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/24 03:07:27 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,10 @@ int get_index(t_node *node, int data)
 	}
 	return (x);
 }
-void ft_error(char *s)
+void ft_error(char *s,t_node *node)
 {
 	printf("%s",s);
+	free(node);
 	exit(0);
 }
 void index_list(t_node *node)
@@ -96,7 +97,29 @@ int is_number(char *s)
 	}
 	return 0;
 }
-
+int	ft_repeted_number(t_node *a,int i)
+{
+	t_node *tmp = a;
+	static int x;
+	int ckeck = 0;
+	if(i == 0)
+		return 1;
+	while (tmp)
+	{
+		if(tmp->index == x)
+		{
+			ckeck = 1;
+			break;
+		}
+		tmp = tmp->next;
+	}
+	x++;
+	if(ckeck == 1)
+	{
+		return ft_repeted_number(a,i-1);
+	}
+	return 0;
+}
 int main(int argc, char *argv[])
 {
 	t_node *a = NULL;
@@ -112,7 +135,7 @@ int main(int argc, char *argv[])
 		while (array[i])
 		{
 			if(is_number(array[i]))
-				ft_error("put valid number");
+				ft_error("put valid number",a);
 			insertEnd(&a, ft_atoi(array[i]),0);
 			free(array[i]);
 			i++;
@@ -124,12 +147,17 @@ int main(int argc, char *argv[])
 		i = 1;
 		while (argv[i])
 		{
+			if(is_number(argv[i]))
+				ft_error("put valid number",a);
 			insertEnd(&a, ft_atoi(argv[i]),0);
 			i++;
 		}
 		i--;
 	}
+	
 	index_list(a);
+	if(ft_repeted_number(a,i) == 0)
+		ft_error("repeated number",a);
 	if(i > 50)
 	{
 		split_into_chunks(&a,&b,(i));
@@ -137,7 +165,6 @@ int main(int argc, char *argv[])
 	}
 	else
 		sort_link(&a,&b, i);
-	// printList(a,"A");
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return 0;
 }
