@@ -23,6 +23,17 @@ void ra(t_node **a)
         temp = temp->next;
     temp->next = temp1;
 }
+void rb(t_node **b)
+{
+    t_node *temp = (*b)->next;
+    t_node *temp1 = NULL;
+    insertEnd(&temp1, (*b)->data, (*b)->index);
+    free(*b);
+    (*b) = temp;
+    while (temp->next != NULL)
+        temp = temp->next;
+    temp->next = temp1;
+}
 
 void rr(t_node **a, t_node **b)
 {

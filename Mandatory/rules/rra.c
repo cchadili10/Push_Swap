@@ -31,6 +31,25 @@ void rra(t_node **a)
     free(lastNode);
 }
 
+void rrb(t_node **b)
+{
+    t_node *temp = *b;
+    t_node *temp1 = NULL;
+    t_node *lastNode;
+
+    while (temp->next != NULL)
+        temp = temp->next;
+    insertEnd(&temp1, temp->data, temp->index);
+    temp1->next = *b;
+    *b = temp1;
+    temp = *b;
+    while (temp->next->next != NULL)
+        temp = temp->next;
+    lastNode = temp->next;
+    temp->next = NULL;
+    free(lastNode);
+}
+
 void rrr(t_node **a, t_node **b)
 {
     rra(a);

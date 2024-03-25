@@ -19,6 +19,14 @@ void sa(t_node **a)
     tump->next = tump->next->next;
     (*a)->next = tump;
 }
+
+void sb(t_node **b)
+{
+    t_node *tump = *b;
+    *b = tump->next;
+    tump->next = tump->next->next;
+    (*b)->next = tump;
+}
 void ss(t_node **a,t_node **b)
 {
    sa(a);

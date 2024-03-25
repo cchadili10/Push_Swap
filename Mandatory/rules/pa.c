@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void pa(t_node **a,t_node **b)
+void pa(t_node **a, t_node **b)
 {
     t_node *temp = NULL;
     t_node *tempx = (*a)->next;
@@ -21,4 +21,15 @@ void pa(t_node **a,t_node **b)
     temp->next = *b;
     *b = temp;
     *a = tempx;
+}
+
+void pb(t_node **b, t_node **a)
+{
+    t_node *temp = NULL;
+    t_node *tempx = (*b)->next;
+    insertEnd(&temp, (*b)->data, (*b)->index);
+    free(*b);
+    temp->next = *a;
+    *a = temp;
+    *b = tempx;
 }
