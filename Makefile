@@ -6,7 +6,7 @@
 #    By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 17:41:14 by hchadili          #+#    #+#              #
-#    Updated: 2024/03/23 09:28:51 by hchadili         ###   ########.fr        #
+#    Updated: 2024/03/25 00:47:49 by hchadili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM = rm -f
 SRC = Mandatory/push_swap.c Mandatory/split.c Mandatory/ft_atoi.c \
 		Mandatory/rules/sa.c Mandatory/rules/pa.c Mandatory/rules/ra.c \
  		Mandatory/rules/rra.c Mandatory/best_move.c Mandatory/split_into_chunk.c \
-		Mandatory/ft_strlen.c Mandatory/best_move_r.c
+		Mandatory/ft_strlen.c Mandatory/best_move_r.c Mandatory/sort_small.c
 
 OBJS = $(SRC:.c=.o)
 

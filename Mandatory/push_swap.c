@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/24 22:58:50 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/25 02:27:28 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,15 @@ int ft_repeted_number(t_node *a, int i)
 int is_lost_sort(t_node *node, int size)
 {
 	int x;
+	t_node *tmp = node;
 
 	x = 0;
 	while (size)
 	{
-		if (node->index != x)
+		if (tmp->index != x)
 			return 0;
+			// printf("index = %d x = %d\n",node, )
+		tmp = tmp->next;
 		size--;
 		x++;
 	}
@@ -152,8 +155,11 @@ int main(int argc, char *argv[])
 		while (argv[i])
 		{
 			array = ft_split(argv[i], ' ');
+			if(!*array)
+				ft_error("Error", a);
 			while (array[j])
 			{
+				
 				if (is_number(array[j]))
 					ft_error("Error", a);
 				insertEnd(&a, ft_atoi(array[j]), 0);
@@ -172,7 +178,12 @@ int main(int argc, char *argv[])
 		ft_error("Error", a);
 	if(is_lost_sort(a,counter))
 		return 0;
-	if (counter > 50)
+	if(counter <= 5)
+	{
+		// printList(a,"A");
+		sort_small_number(a,b, counter);
+	}
+	else if (counter > 50)
 	{
 		split_into_chunks(&a, &b, counter);
 		sort_ink(&b, &a, counter);
