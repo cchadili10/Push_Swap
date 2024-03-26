@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 00:25:10 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 09:51:57 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/26 03:24:49 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,41 @@
 
 void ra(t_node **a)
 {
-    t_node *temp = (*a)->next;
-    t_node *temp1 = NULL;
+    t_node *temp;
+    t_node *temp1;
+
+    temp = (*a)->next;
+    temp1 = NULL;
     insertEnd(&temp1, (*a)->data, (*a)->index);
     free(*a);
     (*a) = temp;
     while (temp->next != NULL)
         temp = temp->next;
     temp->next = temp1;
+    write(1,"ra\n",3);
 }
 void rb(t_node **b)
 {
-    t_node *temp = (*b)->next;
-    t_node *temp1 = NULL;
+    t_node *temp;
+    t_node *temp1;
+
+    temp = (*b)->next;
+    temp1 = NULL;
+    insertEnd(&temp1, (*b)->data, (*b)->index);
+    free(*b);
+    (*b) = temp;
+    while (temp->next != NULL)
+        temp = temp->next;
+    temp->next = temp1;
+    write(1,"rb\n",3);
+}
+void rx(t_node **b)
+{
+    t_node *temp;
+    t_node *temp1;
+
+    temp = (*b)->next;
+    temp1 = NULL;
     insertEnd(&temp1, (*b)->data, (*b)->index);
     free(*b);
     (*b) = temp;
@@ -37,6 +59,7 @@ void rb(t_node **b)
 
 void rr(t_node **a, t_node **b)
 {
-    ra(a);
-    ra(b);
+    rx(a);
+    rx(b);
+    write(1,"rr\n",3);
 }

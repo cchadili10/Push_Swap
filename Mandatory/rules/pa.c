@@ -6,30 +6,38 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:51:28 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 09:51:08 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/26 03:26:00 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void pa(t_node **a, t_node **b)
+void pb(t_node **a, t_node **b)
 {
-    t_node *temp = NULL;
-    t_node *tempx = (*a)->next;
+    t_node *temp;
+    t_node *tempx;
+
+    tempx = (*a)->next;
+    temp = NULL;
     insertEnd(&temp,(*a)->data,(*a)->index);
     free(*a);
     temp->next = *b;
     *b = temp;
     *a = tempx;
+    write(1,"pb\n",3);
 }
 
-void pb(t_node **b, t_node **a)
+void pa(t_node **a, t_node **b)
 {
-    t_node *temp = NULL;
-    t_node *tempx = (*b)->next;
+    t_node *temp;
+    t_node *tempx;
+
+    tempx = (*b)->next;
+    temp = NULL;
     insertEnd(&temp, (*b)->data, (*b)->index);
     free(*b);
     temp->next = *a;
     *a = temp;
     *b = tempx;
+    write(1,"pa\n",3);
 }

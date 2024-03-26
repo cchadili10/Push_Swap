@@ -6,26 +6,30 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 09:15:39 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 09:48:31 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/26 02:08:20 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
 
-void sort_link(t_node **a, t_node **b, int i)
+void	sort_link(t_node **a, t_node **b, int i)
  {
-	t_node *tump = *a;
-	t_node *tump2 = *b;
-	static int status_of_index = 0;
-	int node_position = 0;
-	int x = i/2;
-	if(*a == NULL || i == 1)
+	t_node		*tump;
+	t_node		*tump2;
+	int			node_position;
+	int			x;
+	static int	status_of_index;
+	
+	tump2 = *b;
+	tump = *a;
+	x = i/2;
+	node_position = 0;
+	if (*a == NULL || i == 1)
     {
         while (tump2)
         {
-            pa(b,a);
-            printf("pa\n");
+            pa(a,b);
             tump2 = tump2->next;
         }
 		return;
@@ -34,17 +38,13 @@ void sort_link(t_node **a, t_node **b, int i)
 	{
 		if (tump->index == status_of_index)
 		{
-			if(node_position == 1)
-			{
+			if (node_position == 1)
 				sa(a);
-				printf("sa\n");
-			}
-			else if(x >= node_position)
+			else if (x >= node_position)
 			{
 				while (node_position)
 				{
 					ra(a);
-					printf("ra\n");
 					node_position--;
 				}
 			}
@@ -53,7 +53,6 @@ void sort_link(t_node **a, t_node **b, int i)
 				while (node_position != i)
 				{
 					rra(a);
-					printf("rra\n");
 					node_position++;
 				}
 				node_position = 0;
@@ -64,8 +63,7 @@ void sort_link(t_node **a, t_node **b, int i)
 		node_position++;
 	   tump = tump->next;
 	}
-	pa(a,b);
-	printf("pb\n");
+	pb(a,b);
 	node_position = 0;
 	sort_link(a, b, i-1);
 }

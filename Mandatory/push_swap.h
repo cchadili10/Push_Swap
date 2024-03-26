@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/25 02:28:03 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/26 00:49:31 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_node
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <unistd.h>
 
 
 void sa(t_node **a);
@@ -42,6 +43,9 @@ void ra(t_node **a);
 void rb(t_node **b);
 void rr(t_node **a, t_node **b);
 
+t_node *createNode(int data, int index);
+void insertEnd(t_node **head, int data, int index);
+
 int	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
@@ -53,5 +57,12 @@ void split_into_chunks(t_node **a, t_node **b, int i);
 void sort_ink(t_node **a, t_node **b, int i);
 void sort_link(t_node **a, t_node **b, int i);
 void printList(t_node *node, char *s);
-void sort_small_number(t_node *a, t_node *b, int size);
+
+int is_number(char *s);
+int ft_repeted_number(t_node *a, int i);
+int is_lost_sort(t_node *node, int size);
+
+void index_list(t_node *node);
+
+void sort_small_number(t_node **a, t_node **b, int size);
 #endif

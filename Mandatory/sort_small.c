@@ -6,15 +6,15 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 00:39:29 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/25 03:47:19 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/26 02:58:29 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_number_five(t_node *a, t_node *b)
+void ft_number_five(t_node **a, t_node **b)
 {
-	t_node *tmp = a;
+	t_node *tmp = *a;
 	int x = 0;
 	while (tmp)
 	{
@@ -25,31 +25,24 @@ void ft_number_five(t_node *a, t_node *b)
 	}
 	if (x <= 2)
 	{
-		while (x)
-		{
-			ra(&a);
-			printf("ra\n");
-			x--;
-		}
-		pa(&a, &b);
-		printf("pb\n");
+		while (x--)
+			ra(a);
+		pb(a, b);
 	}
 	else
 	{
 		while (x <= 4)
 		{
-			rra(&a);
-			printf("rra\n");
+			rra(a);
 			x++;
 		}
-		pa(&a, &b);
-		printf("pb\n");
+		pb(a, b);
 	}
 }
 
-void ft_number_four(t_node *a, t_node *b)
+void ft_number_four(t_node **a, t_node **b)
 {
-	t_node *tmp = a;
+	t_node *tmp =* a;
 	int x = 0;
 	while (tmp)
 	{
@@ -60,70 +53,64 @@ void ft_number_four(t_node *a, t_node *b)
 	}
 	if (x <= 2)
 	{
-		while (x)
-		{
-			ra(&a);
-			printf("ra\n");
-			x--;
-		}
-		pa(&a, &b);
-		printf("pb\n");
+		while (x--)
+			ra(a);
+		pb(a, b);
 	}
 	else
 	{
 		while (x <= 3)
 		{
-			rra(&a);
-			printf("rra\n");
+			rra(a);
 			x++;
 		}
-		pa(&a, &b);
-		printf("pb\n");
+		pb(a, b);
 	}
 }
 
-void ft_number_thre(t_node *a)
+
+int get_number(t_node *a)
 {
-	t_node *tmp = a;
-	int x = 0;
-	while (tmp)
+	t_node *node;
+	int	x;
+	
+	node = a;
+	x = 0;
+	while (node)
 	{
-		if (tmp->index == 2)
+		if (node->index == 2)
 			break;
-		tmp = tmp->next;
+		node = node->next;
 		x++;
 	}
+	return (x);
+}
+
+void ft_number_thre(t_node **a)
+{
+	int x;
+	
+	x = get_number(*a);
 	if (x == 1)
 	{
-		rra(&a);
-		printf("rra\n");
-		if (a->index > a->next->index)
-		{
-			sa(&a);
-			printf("sa\n");
-		}
+		rra(a);
+		if ((*a)->index > (*a)->next->index)
+			sa(a);
 	}
-	if (x == 0)
+	else if (x == 0)
 	{
-		ra(&a);
-		printf("ra\n");
-		if (a->index > a->next->index)
-		{
-			sa(&a);
-			printf("sa\n");
-		}
+		ra(a);
+		if ((*a)->index > (*a)->next->index)
+			sa(a);
 	}
-	if (x == 2)
+	else if (x == 2)
 	{
-		if (a->index > a->next->index)
-		{
-			sa(&a);
-			printf("sa\n");
-		}
+		if ((*a)->index > (*a)->next->index)
+			sa(a);
 	}
 }
 
-void sort_small_number(t_node *a, t_node *b, int size)
+void sort_small_number(t_node **a, t_node **b, int size)
 {
 	int ckeck = 0;
 	if(size == 5)
@@ -142,10 +129,9 @@ void sort_small_number(t_node *a, t_node *b, int size)
 		ft_number_thre(a);
 	while (ckeck)
 	{
-		pa(&b,&a);
-		printf("pa\n");
-		ra(&a);
-		printf("ra\n");
+		pa(a,b);
+		ra(a);
+		write (1, "ra\n", 3);
 		ckeck--;
 	}
 }
