@@ -6,15 +6,15 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:58:09 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/25 18:03:13 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 02:01:17 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_index(t_node *node, int data)
+int	get_index(t_node *node, int data)
 {
-	int x;
+	int	x;
 
 	x = 0;
 	while (node != NULL)
@@ -26,9 +26,9 @@ int get_index(t_node *node, int data)
 	return (x);
 }
 
-void index_list(t_node *node)
+void	index_list(t_node *node)
 {
-	t_node *temp1;
+	t_node	*temp1;
 
 	temp1 = node;
 	while (node != NULL)

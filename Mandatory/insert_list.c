@@ -6,37 +6,38 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:54:39 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/26 03:30:14 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 02:05:52 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node *createNode(int data, int index)
+t_node	*create_node(int data, int index)
 {
-	t_node *newNode;
-	
-	newNode = malloc(sizeof(t_node));
-	newNode->data = data;
-	newNode->index = index;
-	newNode->next = NULL;
-	return (newNode);
+	t_node	*new_node;
+
+	new_node = malloc(sizeof(t_node));
+	new_node->data = data;
+	new_node->index = index;
+	new_node->next = NULL;
+	return (new_node);
 }
 
-void insertEnd(t_node **head, int data, int index)
+void	insert_end(t_node **head, int data, int index)
 {
-	t_node *newNode;
-	
-	newNode = createNode(data, index);
+	t_node	*new_node;
+	t_node	*temp;
+
+	new_node = create_node(data, index);
 	if (*head == NULL)
 	{
-		*head = newNode;
-		return;
+		*head = new_node;
+		return ;
 	}
-	t_node *temp = *head;
+	temp = *head;
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
 	}
-	temp->next = newNode;
+	temp->next = new_node;
 }

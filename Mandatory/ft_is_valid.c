@@ -6,13 +6,13 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:50:56 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/26 03:01:13 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 01:59:38 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_number(char *s)
+int	is_number(char *s)
 {
 	int	x;
 
@@ -28,11 +28,12 @@ int is_number(char *s)
 	}
 	return (0);
 }
-int ft_repeted_number(t_node *a, int i)
+
+int	ft_repeted_number(t_node *a, int i)
 {
-	t_node *tmp;
-	static int x;
-	int ckeck;
+	t_node		*tmp;
+	static int	x;
+	int			ckeck;
 
 	tmp = a;
 	ckeck = 0;
@@ -43,20 +44,22 @@ int ft_repeted_number(t_node *a, int i)
 		if (tmp->index == x)
 		{
 			ckeck = 1;
-			break;
+			break ;
 		}
 		tmp = tmp->next;
 	}
 	x++;
 	if (ckeck == 1)
-		return (ft_repeted_number(a, i - 1));
+		return (ft_repeted_number(a, (i - 1)));
 	return (0);
 }
-int is_lost_sort(t_node *node, int size)
-{
-	int x;
-	t_node *tmp = node;
 
+int	is_lost_sort(t_node *node, int size)
+{
+	int		x;
+	t_node	*tmp;
+
+	tmp = node;
 	x = 0;
 	while (size)
 	{

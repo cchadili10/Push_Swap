@@ -6,45 +6,47 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:27:50 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/26 03:27:18 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 03:08:37 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void sa(t_node **a)
+void	sa(t_node **a)
 {
-    t_node *tump;
+	t_node	*tump;
 
-    tump = *a;
-    *a = tump->next;
-    tump->next = tump->next->next;
-    (*a)->next = tump;
-    write(1,"sa\n",3);
+	tump = *a;
+	*a = tump->next;
+	tump->next = tump->next->next;
+	(*a)->next = tump;
+	write(1, "sa\n", 3);
 }
 
-void sb(t_node **b)
+void	sb(t_node **b)
 {
-    t_node *tump;
+	t_node	*tump;
 
-    tump = *b;
-    *b = tump->next;
-    tump->next = tump->next->next;
-    (*b)->next = tump;
-    write(1,"sb\n",3);
+	tump = *b;
+	*b = tump->next;
+	tump->next = tump->next->next;
+	(*b)->next = tump;
+	write(1, "sb\n", 3);
 }
-void sx(t_node **b)
-{
-    t_node *tump;
 
-    tump = *b;
-    *b = tump->next;
-    tump->next = tump->next->next;
-    (*b)->next = tump;
-}
-void ss(t_node **a,t_node **b)
+void	sx(t_node **b)
 {
-   sx(a);
-   sx(b);
-   write(1,"ss\n",3);
+	t_node	*tump;
+
+	tump = *b;
+	*b = tump->next;
+	tump->next = tump->next->next;
+	(*b)->next = tump;
+}
+
+void	ss(t_node **a, t_node **b)
+{
+	sx(a);
+	sx(b);
+	write(1, "ss\n", 3);
 }

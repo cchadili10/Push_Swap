@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 00:08:28 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/23 06:44:49 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 02:00:13 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*ft_calloc(size_t count, size_t size)
 		array = malloc(count * size);
 		if (!array)
 			return (0);
-		ft_memset(array,0, count * size);
+		ft_memset(array, 0, (count * size));
 		return (array);
 	}
 	return (0);
