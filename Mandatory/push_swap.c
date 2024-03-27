@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 02:08:14 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:23:30 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(char *s, t_node *node)
 	exit(0);
 }
 
-void	ft_for_nor(t_node **a, char *s, int *counter, int i)
+void	ft_for_nor(t_node **a, char *s, int *counter)
 {
 	char	**array;
 	int		j;
@@ -39,18 +39,18 @@ void	ft_for_nor(t_node **a, char *s, int *counter, int i)
 	free(array);
 }
 
-void	ft_sort_list(t_node **a, t_node **b, int counter)
+void	ft_sort_li(t_node **a, t_node **b, int counter)
 {
 	if (ft_repeted_number(*a, counter) == 0)
 		ft_error("Error", *a);
 	if (is_lost_sort(*a, counter))
-		return (0);
+		return ;
 	if (counter <= 5)
 		sort_small_number(a, b, counter);
 	else if (counter > 50)
 	{
 		split_into_chunks(a, b, counter);
-		sort_ink(a, b, counter);
+		sort_inkl(a, b, counter);
 	}
 	else
 		sort_link(a, b, counter);
@@ -60,7 +60,6 @@ int	main(int argc, char *argv[])
 {
 	t_node	*a;
 	t_node	*b;
-	char	**array;
 	int		i;
 	int		counter;
 
@@ -71,12 +70,12 @@ int	main(int argc, char *argv[])
 	{
 		while (argv[i])
 		{
-			ft_for_nor(&a, argv[i], &counter, i);
+			ft_for_nor(&a, argv[i], &counter);
 			i++;
 		}
 	}
 	index_list(a);
-	ft_sort_list(&a, &b, counter);
+	ft_sort_li(&a, &b, counter);
 	return (0);
 }
 

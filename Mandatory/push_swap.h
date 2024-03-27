@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 02:49:36 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 22:50:41 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	*ft_memset(void *str, int c, size_t n);
 
 void	insert_end(t_node **head, int data, int index);
 void	split_into_chunks(t_node **a, t_node **b, int i);
-void	sort_ink(t_node **a, t_node **b, int i);
+void	sort_inkl(t_node **a, t_node **b, int i);
 void	sort_link(t_node **a, t_node **b, int i);
 void	printList(t_node *node, char *s);
 

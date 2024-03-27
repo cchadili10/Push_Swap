@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 09:15:39 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 01:57:01 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 22:44:08 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_for_norm(t_node **a, int *node_position, int i)
 	*node_position = 0;
 }
 
-void	move_to_stack(t_node **a, int status_of_index, int i, int x)
+void	move_stack(t_node **a, int status_of_index, int i, int x)
 {
 	t_node	*tmp;
 	int		node_position;
@@ -68,7 +68,7 @@ void	sort_link(t_node **a, t_node **b, int i)
 		}
 		return ;
 	}
-	move_to_stack(a, status_of_index, i, x);
+	move_stack(a, status_of_index, i, x);
 	status_of_index++;
 	pb(a, b);
 	sort_link(a, b, (i - 1));

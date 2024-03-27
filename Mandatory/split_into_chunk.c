@@ -6,13 +6,13 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:50:34 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 02:44:52 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:08:11 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_for_norm(t_node **a, t_node **b, int conter, int *rot_bot)
+void	ft_norm(t_node **a, t_node **b, int conter, int *rot_bot)
 {
 	while (conter)
 	{
@@ -40,7 +40,7 @@ void	move_to_stack(t_node **a, t_node **b, int pivot, int is_first)
 	{
 		if (pivot >= tump->index)
 		{
-			ft_for_norm(a, b, conter, &rot_bot);
+			ft_norm(a, b, conter, &rot_bot);
 			if (rot_bot)
 				((1) && (rb(b), rot_bot = 0));
 			pb(a, b);
@@ -62,6 +62,7 @@ void	split_into_chunks(t_node **a, t_node **b, int i)
 	int			pivot;
 
 	tump = *a;
+	pivot = i;
 	if (*a == NULL)
 		return ;
 	if (i > 100 && is_first == 0)

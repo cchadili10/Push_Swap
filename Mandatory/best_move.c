@@ -6,13 +6,13 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:02:58 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 01:53:58 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:23:04 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_for_norm(t_node **b, int *node_position, int i)
+void	ft_for_norml(t_node **b, int *node_position, int i)
 {
 	while (*node_position != i)
 	{
@@ -22,7 +22,7 @@ void	ft_for_norm(t_node **b, int *node_position, int i)
 	*node_position = 0;
 }
 
-void	move_to_stack(t_node **b, int status_of_index, int i, int x)
+void	move_to_stackl(t_node **b, int i, int x)
 {
 	t_node	*tmp;
 	int		node_position;
@@ -41,7 +41,7 @@ void	move_to_stack(t_node **b, int status_of_index, int i, int x)
 					rb(b);
 			}
 			else
-				ft_for_norm(b, &node_position, i);
+				ft_for_norml(b, &node_position, i);
 			break ;
 		}
 		node_position++;
@@ -49,7 +49,7 @@ void	move_to_stack(t_node **b, int status_of_index, int i, int x)
 	}
 }
 
-void	sort_ink(t_node **a, t_node **b, int i)
+void	sort_inkl(t_node **a, t_node **b, int i)
 {
 	t_node		*tump;
 	static int	status_of_index;
@@ -60,6 +60,7 @@ void	sort_ink(t_node **a, t_node **b, int i)
 	if (*b == NULL)
 		return ;
 	status_of_index++;
+	move_to_stackl(b, i, x);
 	pa(a, b);
-	sort_ink(a, b, (i - 1));
+	sort_inkl(a, b, (i - 1));
 }
