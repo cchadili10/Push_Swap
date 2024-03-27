@@ -6,13 +6,13 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 01:37:40 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 01:57:17 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:45:07 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int					x;
 	int					sin;

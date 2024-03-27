@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 23:23:30 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:48:56 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_error(char *s, t_node *node)
 {
-	printf("%s", s);
+	write(1, s, ft_strlen(s));
+	write(1, "\n", 1);
 	free(node);
 	exit(0);
 }
@@ -23,6 +24,7 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 {
 	char	**array;
 	int		j;
+	long		holder;
 
 	j = 0;
 	array = ft_split(s, ' ');
@@ -32,7 +34,10 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 	{
 		if (is_number(array[j]))
 			ft_error("Error", *a);
-		insert_end(a, ft_atoi(array[j]), 0);
+		holder = ft_atoi(array[j]);
+		if(holder > INT_MAX || holder < INT_MIN)
+			ft_error("Error", *a);
+		insert_end(a, holder, 0);
 		free(array[j]);
 		((1) && (*counter += 1, j++));
 	}

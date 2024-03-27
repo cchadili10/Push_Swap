@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 22:50:41 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:45:21 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	rr(t_node **a, t_node **b);
 t_node	*create_node(int data, int index);
 void	insert_end(t_node **head, int data, int index);
 
-int		ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
