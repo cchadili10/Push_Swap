@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:51:28 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/28 00:16:33 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 03:53:47 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	pb(t_node **a, t_node **b)
 	t_node	*temp;
 	t_node	*tempx;
 
+	if(!(*a))
+		return ;
 	tempx = (*a)->next;
 	temp = NULL;
 	insert_end(&temp, (*a)->data, (*a)->index);
@@ -24,14 +26,15 @@ void	pb(t_node **a, t_node **b)
 	temp->next = *b;
 	*b = temp;
 	*a = tempx;
-	write(1, "pb\n", 3);
 }
 
 void	pa(t_node **a, t_node **b)
 {
 	t_node	*temp;
 	t_node	*tempx;
-
+	
+	if(!(*b))
+		return ;
 	tempx = (*b)->next;
 	temp = NULL;
 	insert_end(&temp, (*b)->data, (*b)->index);
@@ -39,5 +42,4 @@ void	pa(t_node **a, t_node **b)
 	temp->next = *a;
 	*a = temp;
 	*b = tempx;
-	write(1, "pa\n", 3);
 }

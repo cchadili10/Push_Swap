@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 00:23:53 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/28 00:22:56 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 03:54:18 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	rra(t_node **a)
 	t_node	*temp1;
 	t_node	*last_node;
 
+	if(!(*a) || !(*a)->next)
+		return ;
 	temp = *a;
 	temp1 = NULL;
 	while (temp->next != NULL)
@@ -31,7 +33,6 @@ void	rra(t_node **a)
 	last_node = temp->next;
 	temp->next = NULL;
 	free(last_node);
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_node **b)
@@ -40,6 +41,8 @@ void	rrb(t_node **b)
 	t_node	*temp1;
 	t_node	*last_node;
 
+	if(!(*b) || !(*b)->next)
+		return ;
 	temp = *b;
 	temp1 = NULL;
 	while (temp->next != NULL)
@@ -53,7 +56,6 @@ void	rrb(t_node **b)
 	last_node = temp->next;
 	temp->next = NULL;
 	free(last_node);
-	write(1, "rrb\n", 4);
 }
 
 void	rrx(t_node **b)
@@ -62,6 +64,8 @@ void	rrx(t_node **b)
 	t_node	*temp1;
 	t_node	*last_node;
 
+	if(!(*b) || !(*b)->next)
+		return ;
 	temp = *b;
 	temp1 = NULL;
 	while (temp->next != NULL)
@@ -81,5 +85,4 @@ void	rrr(t_node **a, t_node **b)
 {
 	rrx(a);
 	rrx(b);
-	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:27:50 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/28 00:22:45 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 03:54:33 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,32 @@ void	sa(t_node **a)
 {
 	t_node	*tump;
 
+	if(!(*a) || !(*a)->next)
+		return ;
 	tump = *a;
 	*a = tump->next;
 	tump->next = tump->next->next;
 	(*a)->next = tump;
-	write(1, "sa\n", 3);
 }
 
 void	sb(t_node **b)
 {
 	t_node	*tump;
 
+	if(!(*b) || !(*b)->next)
+		return ;
 	tump = *b;
 	*b = tump->next;
 	tump->next = tump->next->next;
 	(*b)->next = tump;
-	write(1, "sb\n", 3);
 }
 
 void	sx(t_node **b)
 {
 	t_node	*tump;
 
+	if(!(*b) || !(*b)->next)
+		return ;
 	tump = *b;
 	*b = tump->next;
 	tump->next = tump->next->next;
@@ -48,5 +52,4 @@ void	ss(t_node **a, t_node **b)
 {
 	sx(a);
 	sx(b);
-	write(1, "ss\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/28 00:17:13 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 03:10:31 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_node
 
 void	sa(t_node **a);
 void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
 
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **b, t_node **a);
