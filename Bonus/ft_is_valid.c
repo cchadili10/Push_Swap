@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:50:56 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/28 00:21:58 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:12:11 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	is_lost_sort(t_node *node, int size)
 	int		x;
 	t_node	*tmp;
 
+	if (!node)
+		return (0);
 	tmp = node;
 	x = 0;
 	while (size)

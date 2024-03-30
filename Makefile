@@ -6,7 +6,7 @@
 #    By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 17:41:14 by hchadili          #+#    #+#              #
-#    Updated: 2024/03/28 00:25:22 by hchadili         ###   ########.fr        #
+#    Updated: 2024/03/30 17:57:46 by hchadili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = Mandatory/push_swap.c Mandatory/split.c Mandatory/ft_atoi.c \
 		Mandatory/ft_strlen.c Mandatory/best_move_r.c Mandatory/sort_small.c Mandatory/ft_is_valid.c \
 		Mandatory/insert_list.c Mandatory/index_list.c
 
-SRC_B = Bonus/push_swap_bonus.c Bonus/split.c Bonus/ft_atoi.c \
+SRC_B = Bonus/push_swap_bonus.c Bonus/split.c Bonus/ft_atoi.c Bonus/ft_apply.c \
 		Bonus/rules/sa.c Bonus/rules/pa.c Bonus/rules/ra.c \
  		Bonus/rules/rra.c Bonus/ft_strlen.c  Bonus/ft_is_valid.c \
 		Bonus/insert_list.c Bonus/index_list.c Bonus/get_next_line/get_next_line.c Bonus/get_next_line/get_next_line_utils.c

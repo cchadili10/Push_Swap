@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 23:48:56 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:16:26 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 {
 	char	**array;
 	int		j;
-	long		holder;
+	long	holder;
 
 	j = 0;
 	array = ft_split(s, ' ');
@@ -35,7 +35,7 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 		if (is_number(array[j]))
 			ft_error("Error", *a);
 		holder = ft_atoi(array[j]);
-		if(holder > INT_MAX || holder < INT_MIN)
+		if (holder > INT_MAX || holder < INT_MIN)
 			ft_error("Error", *a);
 		insert_end(a, holder, 0);
 		free(array[j]);

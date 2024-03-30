@@ -6,12 +6,12 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 03:10:31 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:15:02 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -21,7 +21,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
-
 
 typedef struct s_node
 {
@@ -49,11 +48,12 @@ void	rr(t_node **a, t_node **b);
 t_node	*create_node(int data, int index);
 void	insert_end(t_node **head, int data, int index);
 
-long		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *str, int c, size_t n);
+void	ft_output(t_node **a, t_node **b);
 
 void	printList(t_node *node, char *s);
 

@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:51:28 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 03:53:47 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:15:44 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	pb(t_node **a, t_node **b)
 	t_node	*temp;
 	t_node	*tempx;
 
-	if(!(*a))
+	if (!(*a))
 		return ;
 	tempx = (*a)->next;
 	temp = NULL;
@@ -32,8 +32,8 @@ void	pa(t_node **a, t_node **b)
 {
 	t_node	*temp;
 	t_node	*tempx;
-	
-	if(!(*b))
+
+	if (!(*b))
 		return ;
 	tempx = (*b)->next;
 	temp = NULL;

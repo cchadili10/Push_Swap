@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 00:25:10 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 03:54:02 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:06:06 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ra(t_node **a)
 	t_node	*temp;
 	t_node	*temp1;
 
-	if(!(*a) || !(*a)->next)
+	if (!(*a) || !(*a)->next)
 		return ;
 	temp = (*a)->next;
 	temp1 = NULL;
@@ -34,7 +34,7 @@ void	rb(t_node **b)
 	t_node	*temp;
 	t_node	*temp1;
 
-	if(!(*b) || !(*b)->next)
+	if (!(*b) || !(*b)->next)
 		return ;
 	temp = (*b)->next;
 	temp1 = NULL;
@@ -51,7 +51,7 @@ void	rx(t_node **b)
 	t_node	*temp;
 	t_node	*temp1;
 
-	if(!(*b) || !(*b)->next)
+	if (!(*b) || !(*b)->next)
 		return ;
 	temp = (*b)->next;
 	temp1 = NULL;
