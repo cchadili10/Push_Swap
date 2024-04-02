@@ -6,11 +6,11 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 17:55:41 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 18:11:40 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/31 00:48:00 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	ft_cmpr(char *s, char *s1)
 {

@@ -6,11 +6,20 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 18:13:44 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/04/02 00:37:54 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void printList(t_node *node, char *s)
+{
+	while (node != NULL)
+	{
+		printf("STACK %s -->  Index %d: Data %d\n", s, node->index, node->data);
+		node = node->next;
+	}
+}
 
 void	ft_error(char *s, t_node *node)
 {
@@ -34,7 +43,7 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 	{
 		if (is_number(array[j]))
 			ft_error("Error", *a);
-		holder = ft_atoi(array[j]);
+		holder = ft_atoi(array[j], *a);
 		if (holder > INT_MAX || holder < INT_MIN)
 			ft_error("Error", *a);
 		insert_end(a, holder, 0);
@@ -64,7 +73,9 @@ int	main(int argc, char *argv[])
 	}
 	index_list(a);
 	ft_output(&a, &b);
-	if (is_lost_sort(a, counter))
+	printList(a,"A");
+	printList(b,"B");
+	if (is_lost_sort(a,b, counter))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

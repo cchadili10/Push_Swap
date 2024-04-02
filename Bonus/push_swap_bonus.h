@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 18:15:02 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/04/02 00:35:44 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ void	rr(t_node **a, t_node **b);
 
 t_node	*create_node(int data, int index);
 void	insert_end(t_node **head, int data, int index);
+void	ft_error(char *s, t_node *node);
 
-long	ft_atoi(const char *str);
+long	ft_atoi(const char *str, t_node *a);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
@@ -59,7 +60,7 @@ void	printList(t_node *node, char *s);
 
 int		is_number(char *s);
 int		ft_repeted_number(t_node *a, int i);
-int		is_lost_sort(t_node *node, int size);
+int		is_lost_sort(t_node *node, t_node *node1, int size);
 
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s1, int b);

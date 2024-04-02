@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:50:56 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 18:12:11 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/31 01:20:30 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	ft_repeted_number(t_node *a, int i)
 	return (0);
 }
 
-int	is_lost_sort(t_node *node, int size)
+int	is_lost_sort(t_node *node, t_node *node1, int size)
 {
 	int		x;
 	t_node	*tmp;
 
-	if (!node)
+	if (!node || node1)
 		return (0);
 	tmp = node;
 	x = 0;

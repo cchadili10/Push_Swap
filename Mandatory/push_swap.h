@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 18:16:36 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/03/31 01:52:44 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ void	rr(t_node **a, t_node **b);
 t_node	*create_node(int data, int index);
 void	insert_end(t_node **head, int data, int index);
 
-long	ft_atoi(const char *str);
+long	ft_atoi(const char *str, t_node *a);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *str, int c, size_t n);
+void	ft_error(char *s, t_node *node);
 
 void	insert_end(t_node **head, int data, int index);
 void	split_into_chunks(t_node **a, t_node **b, int i);
