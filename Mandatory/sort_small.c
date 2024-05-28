@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 00:39:29 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 02:39:31 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/28 00:01:11 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	ft_number_five(t_node **a, t_node **b)
 	if (x <= 2)
 	{
 		while (x--)
-			ra(a);
+			ra(a, b);
 		pb(a, b);
 	}
 	else
 	{
 		while (x++ <= 4)
-			rra(a);
+			rra(a, b);
 		pb(a, b);
 	}
 }
@@ -57,13 +57,13 @@ void	ft_number_four(t_node **a, t_node **b)
 	if (x <= 2)
 	{
 		while (x--)
-			ra(a);
+			ra(a, b);
 		pb(a, b);
 	}
 	else
 	{
 		while (x++ <= 3)
-			rra(a);
+			rra(a, b);
 		pb(a, b);
 	}
 }
@@ -85,20 +85,20 @@ int	get_number(t_node *a)
 	return (x);
 }
 
-void	ft_number_thre(t_node **a)
+void	ft_number_thre(t_node **a, t_node **b)
 {
 	int	x;
 
 	x = get_number(*a);
 	if (x == 1)
 	{
-		rra(a);
+		rra(a, b);
 		if ((*a)->index > (*a)->next->index)
 			sa(a);
 	}
 	else if (x == 0)
 	{
-		ra(a);
+		ra(a, b);
 		if ((*a)->index > (*a)->next->index)
 			sa(a);
 	}
@@ -125,7 +125,7 @@ void	sort_small_number(t_node **a, t_node **b, int size)
 		((1) && (size--, ckeck++));
 	}
 	if (size == 3)
-		ft_number_thre(a);
+		ft_number_thre(a, b);
 	if (size == 2)
 	{
 		if ((*a)->index > (*a)->next->index)
@@ -134,6 +134,6 @@ void	sort_small_number(t_node **a, t_node **b, int size)
 	while (ckeck--)
 	{
 		pa(a, b);
-		ra(a);
+		ra(a, b);
 	}
 }

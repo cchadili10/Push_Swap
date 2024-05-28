@@ -6,7 +6,7 @@
 #    By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 17:41:14 by hchadili          #+#    #+#              #
-#    Updated: 2024/03/30 17:57:46 by hchadili         ###   ########.fr        #
+#    Updated: 2024/05/26 15:49:25 by hchadili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ SRC = Mandatory/push_swap.c Mandatory/split.c Mandatory/ft_atoi.c \
 		Mandatory/ft_strlen.c Mandatory/best_move_r.c Mandatory/sort_small.c Mandatory/ft_is_valid.c \
 		Mandatory/insert_list.c Mandatory/index_list.c
 
-SRC_B = Bonus/push_swap_bonus.c Bonus/split.c Bonus/ft_atoi.c Bonus/ft_apply.c \
-		Bonus/rules/sa.c Bonus/rules/pa.c Bonus/rules/ra.c \
- 		Bonus/rules/rra.c Bonus/ft_strlen.c  Bonus/ft_is_valid.c \
-		Bonus/insert_list.c Bonus/index_list.c Bonus/get_next_line/get_next_line.c Bonus/get_next_line/get_next_line_utils.c
+SRC_B = Bonus/push_swap_bonus.c Bonus/split_bonus.c Bonus/ft_atoi_bonus.c Bonus/ft_apply_bonus.c \
+		Bonus/rules/sa_bonus.c Bonus/rules/pa_bonus.c Bonus/rules/ra_bonus.c \
+ 		Bonus/rules/rra_bonus.c Bonus/ft_strlen_bonus.c  Bonus/ft_is_valid_bonus.c \
+		Bonus/insert_list_bonus.c Bonus/index_list_bonus.c Bonus/get_next_line/get_next_line_bonus.c Bonus/get_next_line/get_next_line_utils_bonus.c
 
 
 OBJS = $(SRC:.c=.o)

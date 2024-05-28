@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:54:39 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 02:05:52 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/26 18:50:57 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_node	*create_node(int data, int index)
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return (0);
 	new_node->data = data;
 	new_node->index = index;
 	new_node->next = NULL;
@@ -36,8 +38,6 @@ void	insert_end(t_node **head, int data, int index)
 	}
 	temp = *head;
 	while (temp->next != NULL)
-	{
 		temp = temp->next;
-	}
 	temp->next = new_node;
 }

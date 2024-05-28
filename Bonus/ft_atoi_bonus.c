@@ -1,18 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 01:37:40 by hchadili          #+#    #+#             */
-/*   Updated: 2024/04/02 00:37:23 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/28 01:36:04 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-long	ft_atoi(const char *str, t_node *a)
+int	ft_sizeof_stack(t_node *a)
+{
+	t_node	*tmp;
+	int		x;
+
+	tmp = a;
+	x = 0;
+	while (tmp)
+	{
+		x++;
+		tmp = tmp->next;
+	}
+	return (x);
+}
+
+void	ft_free_arr(char **arr, int x)
+{
+	while (arr[x])
+	{
+		free(arr[x]);
+		x++;
+	}
+	free(arr);
+}
+
+long	ft_atoi(const char *str, char **arr, t_node *a, int j)
 {
 	int					x;
 	int					sin;
@@ -32,10 +57,11 @@ long	ft_atoi(const char *str, t_node *a)
 	while (str[x] >= '0' && str[x] <= '9')
 	{
 		res = res * 10 + str[x++] - 48;
-		if (res > LONG_MAX && sin == 1)
+		if (res > LONG_MAX)
+		{
+			ft_free_arr(arr, j);
 			ft_error("Error", a);
-		else if (res > LONG_MAX && sin == -1)
-			ft_error("Error", a);
+		}
 	}
 	return (res * sin);
 }

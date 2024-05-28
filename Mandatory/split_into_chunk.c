@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 21:50:34 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 23:08:11 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/27 23:58:31 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_norm(t_node **a, t_node **b, int conter, int *rot_bot)
 			rr(a, b);
 		}
 		else
-			ra(a);
+			ra(a, b);
 		conter--;
 	}
 }
@@ -42,7 +42,7 @@ void	move_to_stack(t_node **a, t_node **b, int pivot, int is_first)
 		{
 			ft_norm(a, b, conter, &rot_bot);
 			if (rot_bot)
-				((1) && (rb(b), rot_bot = 0));
+				((1) && (rb(b, a), rot_bot = 0));
 			pb(a, b);
 			if (tump->index <= (pivot - (is_first / 2)) && (*b)->next)
 				rot_bot = 1;

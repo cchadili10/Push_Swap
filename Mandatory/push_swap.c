@@ -6,42 +6,32 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/31 01:52:59 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:43:52 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_free_stacka(t_node *head)
+{
+	t_node	*tmp;
+
+	if (!head)
+		return ;
+	while (head)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
+}
+
 void	ft_error(char *s, t_node *node)
 {
 	write(2, s, ft_strlen(s));
 	write(2, "\n", 1);
-	free(node);
+	ft_free_stacka(node);
 	exit(0);
-}
-
-void	ft_for_nor(t_node **a, char *s, int *counter)
-{
-	char	**array;
-	int		j;
-	long	holder;
-
-	j = 0;
-	array = ft_split(s, ' ');
-	if (!*array)
-		ft_error("Error", *a);
-	while (array[j])
-	{
-		if (is_number(array[j]))
-			ft_error("Error", *a);
-		holder = ft_atoi(array[j], *a);
-		if (holder > INT_MAX || holder < INT_MIN)
-			ft_error("Error", *a);
-		insert_end(a, holder, 0);
-		free(array[j]);
-		((1) && (*counter += 1, j++));
-	}
-	free(array);
 }
 
 void	ft_sort_li(t_node **a, t_node **b, int counter)
@@ -59,6 +49,35 @@ void	ft_sort_li(t_node **a, t_node **b, int counter)
 	}
 	else
 		sort_link(a, b, counter);
+}
+
+void	ft_for_nor(t_node **a, char *s, int *counter)
+{
+	char	**array;
+	int		j;
+	long	holder;
+
+	((1) && (j = 0, array = ft_split(s, 32)));
+	if (!array)
+		ft_error("Error", *a);
+	while (array[j])
+	{
+		if (is_number(array[j]))
+		{
+			ft_free_arr(array, j);
+			ft_error("Error", *a);
+		}
+		holder = ft_atoi(array[j], array, *a, j);
+		if (holder > INT_MAX || holder < INT_MIN)
+		{
+			ft_free_arr(array, j);
+			ft_error("Error", *a);
+		}
+		insert_end(a, holder, 0);
+		free(array[j]);
+		((1) && (*counter += 1, j++));
+	}
+	free(array);
 }
 
 int	main(int argc, char *argv[])
@@ -79,16 +98,13 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
+	if (ft_sizeof_stack(a) != counter)
+	{
+		ft_free_stacka(a);
+		exit(1);
+	}
 	index_list(a);
 	ft_sort_li(&a, &b, counter);
+	ft_free_stacka(a);
 	return (0);
 }
-
-// void printList(t_node *node, char *s)
-// {
-// 	while (node != NULL)
-// 	{
-// 		printf("STACK %s -->  Index %d: Data %d\n", s, node->index, node->data);
-// 		node = node->next;
-// 	}
-// }

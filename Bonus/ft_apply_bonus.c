@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_apply.c                                         :+:      :+:    :+:   */
+/*   ft_apply_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 17:55:41 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/31 00:48:00 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/28 01:46:36 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ void	ft_ruls(t_node **a, t_node **b, int position)
 	else if (position == 4)
 		pb(a, b);
 	else if (position == 5)
-		ra(a);
+		ra(a, b);
 	else if (position == 6)
-		rb(b);
+		rb(b, a);
 	else if (position == 7)
 		rr(a, b);
 	else if (position == 8)
-		rra(a);
+		rra(a, b);
 	else if (position == 9)
-		rrb(b);
+		rrb(b, a);
 	else if (position == 10)
 		rrr(a, b);
 }

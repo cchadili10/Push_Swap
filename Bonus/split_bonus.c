@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   split_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:11:09 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/28 00:22:29 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:42:20 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	y = 0;
 	if (!s)
 		return (0);
-	if (ft_strlen(s) < start)
-		return (array = ft_calloc(1, 1));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
 	array = (char *) malloc((len) * sizeof(char) + 1);
@@ -99,6 +97,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	count = ft_count_words(s, c);
+	if (count == 0)
+		return (0);
 	array = (char **) malloc(sizeof(char *) * (count + 1));
 	if (!array)
 		return (0);

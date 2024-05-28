@@ -6,23 +6,23 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:02:58 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/27 23:23:04 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/27 23:55:38 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_for_norml(t_node **b, int *node_position, int i)
+void	ft_for_norml(t_node **b, t_node **a, int *node_position, int i)
 {
 	while (*node_position != i)
 	{
-		rrb(b);
+		rrb(b, a);
 		*node_position += 1;
 	}
 	*node_position = 0;
 }
 
-void	move_to_stackl(t_node **b, int i, int x)
+void	move_to_stackl(t_node **b, t_node **a, int i, int x)
 {
 	t_node	*tmp;
 	int		node_position;
@@ -38,10 +38,10 @@ void	move_to_stackl(t_node **b, int i, int x)
 			else if (x >= node_position)
 			{
 				while (node_position--)
-					rb(b);
+					rb(b, a);
 			}
 			else
-				ft_for_norml(b, &node_position, i);
+				ft_for_norml(b, a, &node_position, i);
 			break ;
 		}
 		node_position++;
@@ -52,15 +52,13 @@ void	move_to_stackl(t_node **b, int i, int x)
 void	sort_inkl(t_node **a, t_node **b, int i)
 {
 	t_node		*tump;
-	static int	status_of_index;
 	int			x;
 
 	tump = *b;
 	x = i / 2;
 	if (*b == NULL)
 		return ;
-	status_of_index++;
-	move_to_stackl(b, i, x);
+	move_to_stackl(b, a, i, x);
 	pa(a, b);
 	sort_inkl(a, b, (i - 1));
 }

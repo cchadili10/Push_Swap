@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   sa_bonus.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 01:27:50 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/30 18:06:37 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/28 00:36:16 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_node **a)
 {
 	t_node	*tump;
 
-	if (!(*a) || !(*a)->next)
+	if (!a || !(*a) || !(*a)->next)
 		return ;
 	tump = *a;
 	*a = tump->next;
@@ -28,19 +28,7 @@ void	sb(t_node **b)
 {
 	t_node	*tump;
 
-	if (!(*b) || !(*b)->next)
-		return ;
-	tump = *b;
-	*b = tump->next;
-	tump->next = tump->next->next;
-	(*b)->next = tump;
-}
-
-void	sx(t_node **b)
-{
-	t_node	*tump;
-
-	if (!(*b) || !(*b)->next)
+	if (!b || !(*b) || !(*b)->next)
 		return ;
 	tump = *b;
 	*b = tump->next;
@@ -50,6 +38,6 @@ void	sx(t_node **b)
 
 void	ss(t_node **a, t_node **b)
 {
-	sx(a);
-	sx(b);
+	sa(a);
+	sb(b);
 }
