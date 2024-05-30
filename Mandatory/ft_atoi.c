@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 01:37:40 by hchadili          #+#    #+#             */
-/*   Updated: 2024/05/27 23:23:39 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:55:55 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,12 @@ long	ft_atoi(const char *str, char **arr, t_node *a, int j)
 	unsigned long long	res;
 
 	((1) && (x = 0, sin = 1, res = 0));
-	while ((str[x] >= 9 && str[x] <= 13) || str[x] == 32)
-		x++;
 	if (str[x] == '-' || str[x] == '+' )
 	{
 		if (str[x] == '-')
 			sin *= -1;
 		x++;
 	}
-	if (str[x] < '0' || str[x] > '9')
-		ft_error("Error", a);
 	while (str[x] >= '0' && str[x] <= '9')
 	{
 		res = res * 10 + str[x++] - 48;

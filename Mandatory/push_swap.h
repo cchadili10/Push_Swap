@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/05/28 14:43:41 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:53:44 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ void	ft_error(char *s, t_node *node);
 
 void	insert_end(t_node **head, int data, int index);
 void	split_into_chunks(t_node **a, t_node **b, int i);
-void	sort_inkl(t_node **a, t_node **b, int i);
-void	sort_link(t_node **a, t_node **b, int i);
+void	sort_link(t_node **a, t_node **b);
 
-int		is_number(char *s);
+int		is_not_number(char *s);
 int		ft_repeted_number(t_node *a, int i);
 int		is_lost_sort(t_node *node, int size);
 
@@ -61,5 +60,9 @@ void	ft_free_arr(char **arr, int x);
 void	sort_small_number(t_node **a, t_node **b, int size);
 int		ft_sizeof_stack(t_node *a);
 void	ft_free_stacka(t_node *head);
+
+int		ft_get_max(t_node *node, int x);
+int		ft_small_or_big(t_node *node, int small, int big);
+void	ft_for_norml(t_node **b, t_node **a, int node_position, int size);
 
 #endif

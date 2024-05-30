@@ -6,18 +6,21 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:50:56 by hchadili          #+#    #+#             */
-/*   Updated: 2024/03/31 01:59:14 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:56:34 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_number(char *s)
+int	is_not_number(char *s)
 {
 	int	x;
 
 	x = 0;
 	if ((s[x] != '+' && s[x] != '-') && (s[x] < 48 || s[x] > 57))
+		return (1);
+	x++;
+	if ((s[x] < '0' || s[x] > '9' ) && s[x])
 		return (1);
 	x++;
 	while (s[x])

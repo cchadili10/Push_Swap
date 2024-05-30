@@ -6,59 +6,68 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:02:58 by hchadili          #+#    #+#             */
-/*   Updated: 2024/05/27 23:55:38 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:53:44 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_for_norml(t_node **b, t_node **a, int *node_position, int i)
+void	ft_move_small_big(t_node **a, t_node **b, int big, int small)
 {
-	while (*node_position != i)
+	if (small == 1)
+		sb(b);
+	else if ((ft_sizeof_stack(*b) / 2) >= small)
 	{
-		rrb(b, a);
-		*node_position += 1;
+		while (small--)
+			rb(b, a);
 	}
-	*node_position = 0;
+	else
+		ft_for_norml(b, a, small, ft_sizeof_stack(*b));
+	pa(a, b);
+	big = ft_get_max(*b, ft_sizeof_stack(*b));
+	if (big == 1)
+		sb(b);
+	else if ((ft_sizeof_stack(*b) / 2) >= big)
+	{
+		while (big--)
+			rb(b, a);
+	}
+	else
+		ft_for_norml(b, a, big, ft_sizeof_stack(*b));
+	pa(a, b);
+	sa(a);
 }
 
-void	move_to_stackl(t_node **b, t_node **a, int i, int x)
+void	move_to_stackl(t_node **b, t_node **a)
 {
-	t_node	*tmp;
-	int		node_position;
+	int	big;
+	int	small;
+	int	check;
 
-	tmp = *b;
-	node_position = 0;
-	while (tmp)
+	big = ft_get_max(*b, ft_sizeof_stack(*b) - 1);
+	small = ft_get_max(*b, ft_sizeof_stack(*b) - 2);
+	check = ft_small_or_big(*b, small, big);
+	if (check)
 	{
-		if (tmp->index == (i - 1))
+		if (big == 1)
+			sb(b);
+		else if ((ft_sizeof_stack(*b) / 2) >= big)
 		{
-			if (node_position == 1)
-				sb(b);
-			else if (x >= node_position)
-			{
-				while (node_position--)
-					rb(b, a);
-			}
-			else
-				ft_for_norml(b, a, &node_position, i);
-			break ;
+			while (big--)
+				rb(b, a);
 		}
-		node_position++;
-		tmp = tmp->next;
+		else
+			ft_for_norml(b, a, big, ft_sizeof_stack(*b));
+		pa(a, b);
 	}
+	else
+		ft_move_small_big(a, b, big, small);
 }
 
-void	sort_inkl(t_node **a, t_node **b, int i)
+void	sort_link(t_node **a, t_node **b)
 {
-	t_node		*tump;
-	int			x;
-
-	tump = *b;
-	x = i / 2;
 	if (*b == NULL)
 		return ;
-	move_to_stackl(b, a, i, x);
-	pa(a, b);
-	sort_inkl(a, b, (i - 1));
+	move_to_stackl(b, a);
+	sort_link(a, b);
 }

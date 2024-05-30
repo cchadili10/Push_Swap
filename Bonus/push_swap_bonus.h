@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:45:20 by hchadili          #+#    #+#             */
-/*   Updated: 2024/05/28 14:42:31 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/29 18:01:52 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
@@ -53,7 +52,7 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
 void	ft_output(t_node **a, t_node **b);
 
-int		is_number(char *s);
+int		is_not_number(char *s);
 int		ft_repeted_number(t_node *a, int i);
 int		is_lost_sort(t_node *node, t_node *node1, int size);
 

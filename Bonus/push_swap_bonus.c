@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/05/28 15:59:51 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:57:49 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 		ft_error("Error", *a);
 	while (array[j])
 	{
-		if (is_number(array[j]))
+		if (is_not_number(array[j]))
 		{
 			ft_free_arr(array, j);
 			ft_error("Error", *a);

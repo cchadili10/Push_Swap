@@ -6,7 +6,7 @@
 /*   By: hchadili <hchadili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:40:33 by hchadili          #+#    #+#             */
-/*   Updated: 2024/05/28 14:43:52 by hchadili         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:53:44 by hchadili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ void	ft_sort_li(t_node **a, t_node **b, int counter)
 		return ;
 	if (counter <= 5)
 		sort_small_number(a, b, counter);
-	else if (counter > 50)
+	else
 	{
 		split_into_chunks(a, b, counter);
-		sort_inkl(a, b, counter);
+		sort_link(a, b);
 	}
-	else
-		sort_link(a, b, counter);
 }
 
 void	ft_for_nor(t_node **a, char *s, int *counter)
@@ -62,7 +60,7 @@ void	ft_for_nor(t_node **a, char *s, int *counter)
 		ft_error("Error", *a);
 	while (array[j])
 	{
-		if (is_number(array[j]))
+		if (is_not_number(array[j]))
 		{
 			ft_free_arr(array, j);
 			ft_error("Error", *a);
