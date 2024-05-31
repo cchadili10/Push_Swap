@@ -7,10 +7,10 @@ The push_swap project is a challenging algorithmic exercise aimed at sorting dat
 The main goal is to sort numbers into stack A using the least possible number of operations. This is achieved by manipulating two stacks (A and B) with a set of instructions.
 
 ## Final Grade
-125/125
+125 / 125
 
 ## Mandatory Part
-- Program name: push_swap
+- Program name: push_swap && checker
 - Turn in files: Makefile, *.h, *.c
 - Makefile: NAME, all, clean, fclean, re
 - Arguments: stack A - A list of integers
